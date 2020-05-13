@@ -14,9 +14,9 @@ ADD openvpn-web-ui.tar.gz /opt/openvpn-gui/
 RUN rm -f /opt/openvpn-gui/data.db
 ADD assets/app.conf /opt/openvpn-gui/conf/app.conf
 
-RUN wget https://dl.eff.org/certbot-auto
-RUN mv certbot-auto /usr/local/bin/certbot-auto
+RUN wget -q https://dl.eff.org/certbot-auto -O /usr/local/bin/certbot-auto
 RUN chmod 0755 /usr/local/bin/certbot-auto
+RUN certbot-auto -q --install-only
 
 CMD /opt/start.sh
 

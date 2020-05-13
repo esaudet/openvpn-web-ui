@@ -12,7 +12,7 @@ if [ ! -f $OVDIR/.provisioned ]; then
   openssl dhparam -dsaparam -out $OVDIR/dh2048.pem 2048
   touch $OVDIR/.provisioned
   mkdir /opt/openvpn-gui/cert
-  openssl req -new -x509 -days 365 -nodes -out /opt/openvpn-gui/cert/cert.pem -keyout /opt/openvpn-gui/cert/privkey.pem -subj "/C=CA/ST=Quebec/L=Mirabel/O=IT/CN=www.likuid.com"
+  openssl req -new -x509 -days 365 -nodes -out /opt/openvpn-gui/cert/cert.pem -keyout /opt/openvpn-gui/cert/privkey.pem -subj "/C=CA/ST=Quebec/L=Mirabel/O=IT/CN=tunnel.$DOMAIN"
 fi
 
 if [ ! -f /etc/letsencrypt/live/tunnel.$DOMAIN/cert.pem ]; then
